@@ -173,7 +173,7 @@
     <li class="md-tabs__item">
       
         <a href="../../user-docs/install/" class="md-tabs__link">
-          End-user docs
+          User docs
         </a>
       
     </li>
@@ -186,7 +186,7 @@
     <li class="md-tabs__item">
       
         <a href="../overview/" class="md-tabs__link md-tabs__link--active">
-          Developer docs
+          Contributor docs
         </a>
       
     </li>
@@ -265,17 +265,17 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
-      End-user docs
+      User docs
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="End-user docs" data-md-level="1">
+    <nav class="md-nav" aria-label="User docs" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        End-user docs
+        User docs
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -333,17 +333,17 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
-      Developer docs
+      Contributor docs
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Developer docs" data-md-level="1">
+    <nav class="md-nav" aria-label="Contributor docs" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Developer docs
+        Contributor docs
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -356,18 +356,6 @@
   <li class="md-nav__item">
     <a href="../overview/" title="Overview" class="md-nav__link">
       Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../setup/" title="Setup" class="md-nav__link">
-      Setup
     </a>
   </li>
 
@@ -413,15 +401,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
+  <a href="#options-considered" class="md-nav__link">
+    Options considered
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hybrid-customcontroller-runtime" class="md-nav__link">
-    Hybrid custom+controller-runtime
+  <a href="#our-approach" class="md-nav__link">
+    Our approach
   </a>
   
 </li>
@@ -430,6 +418,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../setup/" title="Setup" class="md-nav__link">
+      Setup
+    </a>
   </li>
 
         
@@ -566,15 +566,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    Options
+  <a href="#options-considered" class="md-nav__link">
+    Options considered
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#hybrid-customcontroller-runtime" class="md-nav__link">
-    Hybrid custom+controller-runtime
+  <a href="#our-approach" class="md-nav__link">
+    Our approach
   </a>
   
 </li>
@@ -603,9 +603,9 @@
 <p>In order to keep the code for all the service controllers consistent, we will
 use a strategy of generating the custom resource definitions and controller
 code stubs for new AWS services.</p>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
-<p>To generate the CRDs and controller stub code, we investigated a number of
-options:</p>
+<h2 id="options-considered">Options considered<a class="headerlink" href="#options-considered" title="Permanent link">&para;</a></h2>
+<p>To generate custom resource (definitions) and controller stub code, we 
+investigated a number of options:</p>
 <ul>
 <li>home-grown custom code generator</li>
 <li><a href="https://kudo.dev">kudo</a></li>
@@ -639,9 +639,10 @@ code for multiple API groups and place generated code <a href="https://github.co
 represented Go best practices. This option gives us the flexibility to generate
 the files and content for multiple API groups but still stay within the
 recommended guardrails of the upstream Kubernetes community.</p>
-<h2 id="hybrid-customcontroller-runtime">Hybrid custom+controller-runtime<a class="headerlink" href="#hybrid-customcontroller-runtime" title="Permanent link">&para;</a></h2>
+<h2 id="our-approach">Our approach<a class="headerlink" href="#our-approach" title="Permanent link">&para;</a></h2>
+<p>We ended up with a hybrid custom+controller-runtime, using multiple phases of
+code generation:</p>
 <p><img alt="Multi-phase approach to code generation for ASO" src="../../images/multi-phase-code-generation.png" /></p>
-<p>This approach uses multiple phases of code generation.</p>
 <p>The first code generation phase consumes model information from a canonical
 source of truth about an AWS service and the objects and interfaces that
 service exposes and generates one or more files containing code that exposes
@@ -761,7 +762,7 @@ structure like this:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../setup/" title="Setup" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../overview/" title="Overview" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -770,19 +771,19 @@ structure like this:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Setup
+                Overview
               </div>
             </div>
           </a>
         
         
-          <a href="../testing/" title="Testing" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../setup/" title="Setup" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Testing
+                Setup
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

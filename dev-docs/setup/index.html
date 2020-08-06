@@ -173,7 +173,7 @@
     <li class="md-tabs__item">
       
         <a href="../../user-docs/install/" class="md-tabs__link">
-          End-user docs
+          User docs
         </a>
       
     </li>
@@ -186,7 +186,7 @@
     <li class="md-tabs__item">
       
         <a href="../overview/" class="md-tabs__link md-tabs__link--active">
-          Developer docs
+          Contributor docs
         </a>
       
     </li>
@@ -265,17 +265,17 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
-      End-user docs
+      User docs
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="End-user docs" data-md-level="1">
+    <nav class="md-nav" aria-label="User docs" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        End-user docs
+        User docs
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -333,17 +333,17 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
-      Developer docs
+      Contributor docs
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
       </span>
     </label>
-    <nav class="md-nav" aria-label="Developer docs" data-md-level="1">
+    <nav class="md-nav" aria-label="Contributor docs" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
         </span>
-        Developer docs
+        Contributor docs
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -356,6 +356,18 @@
   <li class="md-nav__item">
     <a href="../overview/" title="Overview" class="md-nav__link">
       Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../code-generation/" title="Code generation" class="md-nav__link">
+      Code generation
     </a>
   </li>
 
@@ -401,8 +413,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fork-the-repository" class="md-nav__link">
-    Fork the repository
+  <a href="#fork-the-upstream-repository" class="md-nav__link">
+    Fork the upstream repository
   </a>
   
 </li>
@@ -422,8 +434,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-pull-request" class="md-nav__link">
-    Create pull request
+  <a href="#create-a-pull-request" class="md-nav__link">
+    Create a pull request
   </a>
   
 </li>
@@ -432,18 +444,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../code-generation/" title="Code generation" class="md-nav__link">
-      Code generation
-    </a>
   </li>
 
         
@@ -580,8 +580,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fork-the-repository" class="md-nav__link">
-    Fork the repository
+  <a href="#fork-the-upstream-repository" class="md-nav__link">
+    Fork the upstream repository
   </a>
   
 </li>
@@ -601,8 +601,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-pull-request" class="md-nav__link">
-    Create pull request
+  <a href="#create-a-pull-request" class="md-nav__link">
+    Create a pull request
   </a>
   
 </li>
@@ -628,30 +628,48 @@
                 
                 
                 <h1 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h1>
-<p>In the following, we walk you through the setup to start developing on AWS Controller for Kubernetes (ACK) in the <code>mvp</code> phase.</p>
-<h2 id="fork-the-repository">Fork the repository<a class="headerlink" href="#fork-the-repository" title="Permanent link">&para;</a></h2>
-<p>First, fork the <a href="github.com/aws/aws-controllers-k8s">upstream source repository</a> to your private GitHub account.</p>
-<p>Then, on your workstation, run:</p>
+<p>We walk you now through the setup to start contributing to the AWS Controller
+for Kubernetes (ACK). No matter if you're contributing code or docs, follow 
+the steps below.</p>
+<div class="admonition tip">
+<p class="admonition-title">Issue before PR</p>
+<p>Of course we're happy about code drops via PRs, however, in order to give
+us time to plan ahead and also to avoid disappointment, consider creating
+an issue first and submit a PR later. This also helps us to coordinate
+between different contributors and should in general help keeping everyone
+happy.</p>
+</div>
+<h2 id="fork-the-upstream-repository">Fork the upstream repository<a class="headerlink" href="#fork-the-upstream-repository" title="Permanent link">&para;</a></h2>
+<p>First, fork the <a href="https://github.com/aws/aws-controllers-k8s">upstream source repository</a> 
+into your personal GitHub account. Then, in <code>$GOPATH/src/github.com/aws/</code>,
+clone your repo and add the upstream like so:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nb">cd</span> go/src/github.com/aws
-git clone git@github.com:<span class="nv">$GITHUB_ID</span>/aws-controllers-k8s
-<span class="nb">cd</span> aws-controllers-k8s
-git remote add upstream git@github.com:aws/aws-controllers-k8s
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">git clone git@github.com:$GITHUB_ID/aws-controllers-k8s &amp;&amp; \</span>
+<span class="err">cd aws-controllers-k8s &amp;&amp; \</span>
+<span class="err">git remote add upstream git@github.com:aws/aws-controllers-k8s</span>
 </code></pre></div>
 </td></tr></table>
 
+<div class="admonition note">
+<p class="admonition-title">Go version</p>
+<p>We recommend to use a Go version of <code>1.14</code> or above for development.</p>
+</div>
 <h2 id="create-your-local-branch">Create your local branch<a class="headerlink" href="#create-your-local-branch" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>git fetch --all <span class="o">&amp;&amp;</span> git checkout -b <span class="nv">$BRANCH_NAME</span> upstream/mvp
+<p>Next, you create a local branch where you work on your feature or bug fix.
+Let's say you want to enhance the docs, so set <code>BRANCH_NAME=docs-improve</code> and
+then:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">git fetch --all &amp;&amp; git checkout -b $BRANCH_NAME upstream/main</span>
 </code></pre></div>
 </td></tr></table>
 
 <h2 id="commit-changes">Commit changes<a class="headerlink" href="#commit-changes" title="Permanent link">&para;</a></h2>
 <p>Make your changes locally, commit and push using:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>git add . <span class="o">&amp;&amp;</span> git commit
-git push origin <span class="nv">$BRANCH_NAME</span>
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="n">git</span> <span class="k">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="ss">&quot;improves the docs a lot&quot;</span>
+
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="err">$</span><span class="n">BRANCH_NAME</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -688,10 +706,13 @@ To github.com:a-hilaly/aws-controllers-k8s
 </code></pre></div>
 </td></tr></table>
 
-<h2 id="create-pull-request">Create pull request<a class="headerlink" href="#create-pull-request" title="Permanent link">&para;</a></h2>
+<h2 id="create-a-pull-request">Create a pull request<a class="headerlink" href="#create-a-pull-request" title="Permanent link">&para;</a></h2>
 <p>Finally, submit a pull request against the upstream source repository.</p>
-<p>Use either the link that show up as in the example above or to the upstream source repository and open the Pull Request. You'll see a link like the image below:</p>
+<p>Use either the link that show up as in the example above or to the upstream 
+source repository and there open the pull request as depicted below:</p>
 <p><img alt="images" src="../../images/github-pr.png" /></p>
+<p>We monitor the GitHub repo and try to follow up with comments within a working
+day.</p>
                 
               
               
@@ -710,7 +731,7 @@ To github.com:a-hilaly/aws-controllers-k8s
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../overview/" title="Overview" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../code-generation/" title="Code generation" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -719,19 +740,19 @@ To github.com:a-hilaly/aws-controllers-k8s
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Overview
+                Code generation
               </div>
             </div>
           </a>
         
         
-          <a href="../code-generation/" title="Code generation" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../testing/" title="Testing" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Code generation
+                Testing
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
