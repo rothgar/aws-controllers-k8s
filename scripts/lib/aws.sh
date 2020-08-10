@@ -5,6 +5,11 @@ check_aws_credentials() {
         ( echo "No AWS credentials found. Please run \`aws configure\` to set up the CLI for your credentials." && exit 1)
 }
 
+get_aws_account_number() {
+	aws sts get-caller-identity --output text --query Arn | awk -F':' '{print $5}' ||
+		( echo "get_aws_account_number failed" && exit 1 )
+}
+
 ensure_ecr_repo() {
     local __registry_account_id="$1"
     local __repo_name="$2"
